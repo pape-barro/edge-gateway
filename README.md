@@ -9,7 +9,7 @@ transceiver (HopeRF RFM92W), and SX1276 (HopeRF RFM95W).
 The code is for testing and development purposes only, and is not meant
 for production usage.
 
-Maintainer: Pape Abdoulaye BARRO <pape.abdoulaye.barro@gmail.com>
+Maintainer: Pape Abdoulaye BARRO  <pape.abdoulaye.barro@gmail.com>
 
 inspired on:
 ------------
