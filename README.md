@@ -13,20 +13,25 @@ Maintainer: Pape Abdoulaye BARRO <pape.abdoulaye.barro@gmail.com>
 
 inspired on:
 ------------
-
+```
 - https://github.com/hallard/single_chan_pkt_fwd
+```
 
 Added new Features:
 ------------------
  on `global_conf.json`:
 	---
+```
 - adapted for the use of uputronics board CE1 activity, Internet and Lan sensing leds;
 - extended for the use of lora gateway bridge locally or remotely;
+```
  
  on `gsingle_chan_pkt_fwd.service`
 	---
+```
 - changed WorkingDirectory by '/opt/edge-gateway/'
 - changed ExecStart by '/opt/edge-gateway/single_chan_pkt_fwd'
+```
 
 Raspberry PI pin mapping is as follow and pin number in file `global_conf.json` are WiringPi pin number (wPi colunm):
 --------------------------------------------------------------------------------------------------------------------
@@ -63,7 +68,7 @@ root@pi04 # gpio readall
 
 * For Uputronics Raspberry Pi 3 B+ LoRa(TM) Expansion Board pins configuration in file global_conf.json:
 ---------------------------------------------------------------------------------------------------
-
+```
   "pin_nss": 11,
   "pin_dio0": 27,
   "pin_rst": 0,
@@ -71,38 +76,49 @@ root@pi04 # gpio readall
   "pin_InternetLED": 23,
   "pin_ActivityLED_0": 21,
   "pin_ActivityLED_1": 29,
+```
 
 Installation
 ------------
+```
 $ cd /opt/
 $ sudo git clone https://github.com/pape-barro/edge-gateway.git
 $ cd /opt/edge-gateway/
 $ make
 $ sudo make install
+```
 
 To start service (should already be started at boot if you done make install and rebooted of course), stop service or look service status:
 ------------------------------------------------------------------------------------------------------------------------------------------
+```
 $ systemctl start single_chan_pkt_fwd
 $ systemctl stop single_chan_pkt_fwd
 $ systemctl status single_chan_pkt_fwd
+```
 
 To see gateway log in real time:
 -------------------------------
+```
 $ journalctl -f -u single_chan_pkt_fwd
+```
 
 Dependencies
 ------------
+```
 - SPI needs to be enabled on the Raspberry Pi (use raspi-config)
 - WiringPi: a GPIO access library written in C for the BCM2835
   used in the Raspberry Pi.
   sudo apt-get install wiringpi
   see http://wiringpi.com
 - Run packet forwarder as root
+```
 
 License
 -------
+```
 The source files in this repository are made available under the Eclipse Public License v1.0, except:
 - base64 implementation, that has been copied from the Semtech Packet Forwarder;
 - RapidJSON, licensed under the MIT License.
+```
  
 
