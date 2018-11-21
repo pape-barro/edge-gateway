@@ -15,6 +15,7 @@ inspired on:
 ------------
 ```
 - https://github.com/hallard/single_chan_pkt_fwd
+- https://github.com/bokse001/dual_chan_pkt_fwd/blob/master/README.md
 ```
 
 Added new Features:
