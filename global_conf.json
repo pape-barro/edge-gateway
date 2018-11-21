@@ -1,0 +1,47 @@
+{
+  "SX127x_conf":
+  {
+    "freq": 868300000,
+    "spread_factor": 7,
+    "pin_nss": 11,
+    "pin_dio0": 27,
+    "pin_rst": 0,
+    "pin_led1":4,
+    "pin_NetworkLED": 22,
+    "pin_InternetLED": 23,
+    "pin_ActivityLED_1": 29
+  },
+  "gateway_conf":
+  {
+    "ref_latitude": 0.0,
+    "ref_longitude": 0.0,
+    "ref_altitude": 10,
+
+    "name": "Edge Gateway",
+    "email": "pape.abdoulaye.barro@gmail.com",
+    "desc": "a multi-service gateway for communities",
+
+    "servers":
+    [
+      {
+	/* localhost server or comment it. */
+        "address": "localhost",
+        "port": 1700,
+        "enabled": true
+      },
+      {
+	/* you have to change it for the remote server or comment it. */
+        "address": "192.168.1.230",
+        "port": 1700,
+        "enabled": true
+      },
+      {
+	/* TTN server or comment it. */
+        "address": "router.eu.thethings.network",
+        "port": 1700,
+        "enabled": true
+      }
+    ]
+  }
+}
+
