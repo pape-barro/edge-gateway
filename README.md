@@ -20,6 +20,9 @@ inspired on:
 
 Added new Features:
 ------------------
+```
+- Web repository for graphical setting
+```
  on `global_conf.json`:
 	---
 ```
@@ -87,6 +90,8 @@ $ sudo git clone https://github.com/pape-barro/edge-gateway.git
 $ cd /opt/edge-gateway/
 $ make
 $ sudo make install
+$ sudo apt-get update
+$ sudo apt-get install apache2 php libapache2-mod-php
 ```
 
 To start service (should already be started at boot if you done make install and rebooted of course), stop service or look service status:
