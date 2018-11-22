@@ -24,19 +24,16 @@
     "servers":
     [
       {
-	/* localhost server or comment it. */
         "address": "localhost",
         "port": 1700,
         "enabled": true
       },
       {
-	/* you have to change it for the remote server or comment it. */
         "address": "192.168.1.230",
         "port": 1700,
         "enabled": true
       },
       {
-	/* TTN server or comment it. */
         "address": "router.eu.thethings.network",
         "port": 1700,
         "enabled": true
@@ -44,4 +41,3 @@
     ]
   }
 }
-
