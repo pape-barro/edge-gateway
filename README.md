@@ -32,7 +32,7 @@ Added new Features:
 - extended for the use of lora gateway bridge locally or remotely;
 ```
  
- on `gsingle_chan_pkt_fwd.service`
+ on `single_chan_pkt_fwd.service`
 	---
 ```
 - changed WorkingDirectory by '/opt/edge-gateway/'
