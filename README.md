@@ -24,9 +24,7 @@ inspired on:
 
 Added new Features:
 ------------------
-```
-- Web repository for graphical setting
-```
+
  on `global_conf.json`:
 	---
 ```
@@ -39,6 +37,11 @@ Added new Features:
 ```
 - changed WorkingDirectory by '/opt/edge-gateway/'
 - changed ExecStart by '/opt/edge-gateway/single_chan_pkt_fwd'
+```
+ Added [IN PROGRESS ...]
+
+```
+- Web repository for graphical setting
 ```
 
 Raspberry PI pin mapping is as follow and pin number in file `global_conf.json` are WiringPi pin number (wPi colunm):
@@ -77,6 +80,8 @@ root@pi04 # gpio readall
 * For Uputronics Raspberry Pi 3 B+ LoRa(TM) Expansion Board pins configuration in file global_conf.json:
 ---------------------------------------------------------------------------------------------------
 ```
+  "freq": 868300000,
+  "spread_factor": 7,
   "pin_nss": 11,
   "pin_dio0": 27,
   "pin_rst": 0,
@@ -92,8 +97,9 @@ Installation
 $ cd /opt/
 $ sudo git clone https://github.com/pape-barro/edge-gateway.git
 $ cd /opt/edge-gateway/
-$ make
+$ sudo make
 $ sudo make install
+[IN PROGRESS ...]
 $ sudo apt-get update
 $ sudo apt-get install apache2 php libapache2-mod-php
 ```
@@ -101,15 +107,15 @@ $ sudo apt-get install apache2 php libapache2-mod-php
 To start service (should already be started at boot if you done make install and rebooted of course), stop service or look service status:
 ------------------------------------------------------------------------------------------------------------------------------------------
 ```
-$ systemctl start single_chan_pkt_fwd
-$ systemctl stop single_chan_pkt_fwd
-$ systemctl status single_chan_pkt_fwd
+$ sudo systemctl start single_chan_pkt_fwd
+$ sudo systemctl stop single_chan_pkt_fwd
+$ sudo systemctl status single_chan_pkt_fwd
 ```
 
 To see gateway log in real time:
 -------------------------------
 ```
-$ journalctl -f -u single_chan_pkt_fwd
+$ sudo journalctl -f -u single_chan_pkt_fwd
 ```
 
 Dependencies
