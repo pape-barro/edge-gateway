@@ -1,9 +1,9 @@
 Single Channel LoRaWAN Edge-Gateway
+==============================
 ```
 [ A multi-services and multi-optional gateway for communities ]
 { IN PROGRESS ...}
 ```
-==============================
 This repository contains a proof-of-concept implementation of a single
 channel LoRaWAN gateway.
 
