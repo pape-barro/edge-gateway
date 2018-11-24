@@ -68,10 +68,22 @@ modules:
 	sudo systemctl enable lora-app-server
 	curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 	sudo apt-get update && sudo apt-get install telegraf
+	sudo chmod 777 /etc/telegraf/
+	sudo chmod 777 /etc/telegraf/telegraf.conf
+	sudo rm -f /etc/telegraf/telegraf.conf
+	sudo cp -f ./modules/telegraf.conf /etc/telegraf/telegraf.conf
 	sudo apt-get update && sudo apt-get install influxdb
+	sudo chmod 777 /etc/influxdb/
+	sudo chmod 777 /etc/influxdb/influxdb.conf
+	sudo rm -f /etc/influxdb/influxdb.conf
+	sudo cp -f ./modules/influxdb.conf /etc/influxdb/influxdb.conf
 	sudo apt-get update && sudo apt-get install grafana
 	sudo systemctl enable influxdb
 	sudo systemctl start influxdb
+	sudo systemctl enable telegraf
+	sudo systemctl start telegraf
+	sudo systemctl enable grafana-server
+	sudo systemctl start grafana-server
 	
 	
 	
