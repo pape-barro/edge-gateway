@@ -70,6 +70,8 @@ modules:
 	sudo apt-get update && sudo apt-get install telegraf
 	sudo apt-get update && sudo apt-get install influxdb
 	sudo apt-get update && sudo apt-get install grafana
+	sudo systemctl enable influxdb
+	sudo systemctl start influxdb
 	
 	
 	
