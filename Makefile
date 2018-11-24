@@ -85,6 +85,11 @@ modules:
 	sudo systemctl enable grafana-server
 	sudo systemctl start grafana-server
 	
+fireup:
+	sudo systemctl restart influxdb
+	sudo reboot
+	
+	
 	
 	
 	
