@@ -30,3 +30,22 @@ uninstall:
 	sudo systemctl stop single_chan_pkt_fwd
 	sudo systemctl disable single_chan_pkt_fwd.service
 	sudo rm -f /lib/systemd/system/single_chan_pkt_fwd.service 
+	
+graphic:
+	sudo apt-get update
+	sudo apt-get install apache2 php libapache2-mod-php
+	sudo chmod 777 /var/www/
+	sudo rm -f /var/www/html
+	sudo cp -f ./html /var/www/
+	sudo chmod 777 /var/www/html/web/utils/app.txt
+	sudo chmod 777 /var/www/html/web/utils/log.json
+	sudo chmod 777 /var/www/html/web/utils/log.json
+	sudo chmod 777 /opt/edge-gateway/global_conf.json
+	
+modules:
+	
+	
+	
+	
+	
+	
