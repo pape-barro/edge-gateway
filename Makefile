@@ -77,7 +77,8 @@ modules:
 	sudo chmod 777 /etc/influxdb/influxdb.conf
 	sudo rm -f /etc/influxdb/influxdb.conf
 	sudo cp -f ./modules/influxdb.conf /etc/influxdb/influxdb.conf
-	sudo apt-get update && sudo apt-get install grafana
+	sudo apt-get update && sudo wget https://github.com/fg2it/grafana-on-raspberry/releases/download/v4.2.0/grafana_4.2.0_armhf.deb
+	sudo dpkg -i grafana_4.2.0_armhf.deb
 	sudo systemctl enable influxdb
 	sudo systemctl start influxdb
 	sudo systemctl enable telegraf
