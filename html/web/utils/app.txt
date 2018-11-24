@@ -1,0 +1,2 @@
+
+{"appName":"LoRa Server setting", "indexPath":"./web/index.php"},
