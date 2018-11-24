@@ -158,7 +158,7 @@ To see packet forwarder log in real time:
 ```
 $ sudo journalctl -f -u single_chan_pkt_fwd
 ```
-To see glora-gateway-bridge log-output:
+To see LoRa-gateway-bridge log-output:
 -------------------------------
 ```
 $ sudo journalctl -u lora-gateway-bridge -f -n 50
