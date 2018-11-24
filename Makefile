@@ -66,6 +66,9 @@ modules:
 	sudo cp -f ./modules/lora-app-server.toml /etc/lora-app-server/
 	sudo systemctl start lora-app-server
 	sudo systemctl enable lora-app-server
+	curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+	sudo apt-get update && sudo apt-get install influxdb
+	sudo apt-get update && sudo apt-get install telegraf
 	
 	
 	
