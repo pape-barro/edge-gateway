@@ -119,8 +119,14 @@ $ sudo -u postgres psql
 	> \c loraserver_as
 	> create extension pg_trgm;
 	> \q
+$ 
 $ sudo make modules
 
+```
+To find out which version of raspbian you’re running
+-------------
+```
+$ cat /etc/os-release
 ```
 
 To start service (should already be started at boot if you done make install and rebooted of course), stop service or look service status:
