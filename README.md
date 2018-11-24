@@ -131,6 +131,11 @@ echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/ap
 next:
 ```
 $ sudo make modules
+$ influx
+	> CREATE USER admin WITH PASSWORD 'dbpassword' WITH ALL PRIVILEGES
+	> CREATE DATABASE telegraf
+	> exit
+	
 
 ```
 To find out which version of raspbian you’re running
