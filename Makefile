@@ -41,8 +41,33 @@ graphic:
 	sudo chmod 777 /var/www/html/web/utils/log.json
 	sudo chmod 777 /var/www/html/web/utils/log.json
 	sudo chmod 777 /opt/edge-gateway/global_conf.json
+	sudo apt-get update
+	sudo apt-get install mosquitto mosquitto-clients redis-server redis-tools postgresql
 	
 modules:
+	sudo apt-get install apt-transport-https dirmngr
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1CE2AFD36DBCCA00
+	sudo echo "deb https://artifacts.loraserver.io/packages/2.x/deb stable main" | sudo tee /etc/apt/sources.list.d/loraserver.list
+	sudo apt-get update
+	sudo apt-get install lora-gateway-bridge
+	sudo systemctl start lora-gateway-bridge
+	sudo systemctl enable lora-gateway-bridge
+	sudo apt-get install loraserver
+	sudo chmod 777 /etc/loraserver/
+	sudo chmod 777 /etc/loraserver/loraserver.toml
+	sudo rm -f /etc/loraserver/loraserver.toml
+	sudo cp -f ./modules/loraserver.toml /etc/loraserver/
+	sudo systemctl start loraserver
+	sudo systemctl enable loraserver
+	sudo apt-get install lora-app-server
+	sudo chmod 777 /etc/lora-app-server/
+	sudo chmod 777 /etc/lora-app-server/lora-app-server.toml
+	sudo rm -f /etc/lora-app-server/lora-app-server.toml
+	sudo cp -f ./modules/lora-app-server.toml /etc/lora-app-server/
+	sudo systemctl start lora-app-server
+	sudo systemctl enable lora-app-server
+	
+	
 	
 	
 	
