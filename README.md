@@ -1,11 +1,11 @@
 Single Channel LoRaWAN Edge-Gateway
 ==============================
 ```
-[ A multi-services and multi-optional gateway for communities ]
+[ A single channel LoRaWAN multi-services and multi-optional gateway for communities ]
 { IN PROGRESS ...}
 ```
 This repository contains a proof-of-concept implementation of a single
-channel LoRaWAN gateway.
+channel LoRaWAN multi-services and multi-optional gateway for communities.
 
 It has been tested on the Raspberry Pi platform, using a Semtech SX1272
 transceiver (HopeRF RFM92W), and SX1276 (HopeRF RFM95W).
@@ -38,10 +38,12 @@ Added new Features:
 - changed WorkingDirectory by '/opt/edge-gateway/'
 - changed ExecStart by '/opt/edge-gateway/single_chan_pkt_fwd'
 ```
- Added [IN PROGRESS ...]
+ Added 
 
 ```
-- Web repository for graphical setting
+- html repository for graphical setting
+{ IN PROGRESS ...}
+- modules repository for ( loraserver, TIG and access point )
 ```
 
 Raspberry PI pin mapping is as follow and pin number in file `global_conf.json` are WiringPi pin number (wPi colunm):
@@ -99,9 +101,10 @@ $ sudo git clone https://github.com/pape-barro/edge-gateway.git
 $ cd /opt/edge-gateway/
 $ sudo make
 $ sudo make install
-[IN PROGRESS ...]
-$ sudo apt-get update
-$ sudo apt-get install apache2 php libapache2-mod-php
+$ sudo make graphic
+{ IN PROGRESS ...}
+$ sudo make modules
+
 ```
 
 To start service (should already be started at boot if you done make install and rebooted of course), stop service or look service status:
