@@ -26,20 +26,27 @@ inspired on:
 Added new Features:
 ------------------
 
+on `Makefile`:
+	
+```
+- added graphic command;
+- added modules command;
+```
+
  on `global_conf.json`:
-	---
+	
 ```
 - adapted for the use of uputronics board CE1 activity, Internet and Lan sensing leds;
 - extended for the use of lora gateway bridge locally or remotely;
 ```
  
- on `single_chan_pkt_fwd.service`
-	---
+ on `single_chan_pkt_fwd.service`:
+	
 ```
 - changed WorkingDirectory by '/opt/edge-gateway/'
 - changed ExecStart by '/opt/edge-gateway/single_chan_pkt_fwd'
 ```
- Added 
+ Added repositories:
 
 ```
 - html repository for graphical setting
