@@ -35,8 +35,8 @@ graphic:
 	sudo apt-get update
 	sudo apt-get install apache2 php libapache2-mod-php
 	sudo chmod 777 /var/www/
-	sudo rm -f /var/www/html
-	sudo cp -f ./html /var/www/
+	sudo rm -rf /var/www/html
+	sudo cp -rf ./html /var/www/
 	sudo chmod 777 /var/www/html/web/utils/app.txt
 	sudo chmod 777 /var/www/html/web/utils/log.json
 	sudo chmod 777 /var/www/html/web/utils/log.json
