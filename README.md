@@ -20,6 +20,7 @@ inspired on:
 ```
 - https://github.com/hallard/single_chan_pkt_fwd
 - https://github.com/bokse001/dual_chan_pkt_fwd/blob/master/README.md
+- https://www.loraserver.io/guides/debian-ubuntu/
 ```
 
 Added new Features:
@@ -103,6 +104,14 @@ $ sudo make
 $ sudo make install
 $ sudo make graphic
 { IN PROGRESS ...}
+$ sudo -u postgres psql
+	> create role loraserver_as with login password 'dbpassword';
+	> create role loraserver_ns with login password 'dbpassword';
+	> create database loraserver_as with owner loraserver_as;
+	> create database loraserver_ns with owner loraserver_ns;
+	> \c loraserver_as
+	> create extension pg_trgm;
+	> \q
 $ sudo make modules
 
 ```
@@ -115,10 +124,25 @@ $ sudo systemctl stop single_chan_pkt_fwd
 $ sudo systemctl status single_chan_pkt_fwd
 ```
 
-To see gateway log in real time:
+To see packet forwarder log in real time:
 -------------------------------
 ```
 $ sudo journalctl -f -u single_chan_pkt_fwd
+```
+To see glora-gateway-bridge log-output:
+-------------------------------
+```
+$ sudo journalctl -u lora-gateway-bridge -f -n 50
+```
+To see LoRa Server log-output:
+-------------------------------
+```
+$ sudo journalctl -f -n 100 -u loraserver
+```
+To see LoRa App Server log-output:
+-------------------------------
+```
+$ sudo journalctl -f -n 100 -u lora-app-server
 ```
 
 Dependencies
