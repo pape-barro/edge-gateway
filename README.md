@@ -31,6 +31,7 @@ on `Makefile`:
 ```
 - added graphic command;
 - added modules command;
+- added fireup command;
 ```
 
  on `global_conf.json`:
@@ -135,7 +136,7 @@ $ influx
 	> CREATE USER admin WITH PASSWORD 'dbpassword' WITH ALL PRIVILEGES
 	> CREATE DATABASE telegraf
 	> exit
-	
+$ fireup
 
 ```
 To find out which version of raspbian you’re running
