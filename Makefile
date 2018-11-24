@@ -41,8 +41,8 @@ graphic:
 	sudo chmod 777 /var/www/html/web/utils/log.json
 	sudo chmod 777 /var/www/html/web/utils/log.json
 	sudo chmod 777 /opt/edge-gateway/global_conf.json
-	sudo apt-get update
-	sudo apt-get install mosquitto mosquitto-clients redis-server redis-tools postgresql
+	sudo apt-get update && sudo apt-get install mosquitto mosquitto-clients redis-server redis-tools postgresql
+	sudo apt-get update && sudo apt install apt-transport-https curl
 	
 modules:
 	sudo apt-get install apt-transport-https dirmngr
