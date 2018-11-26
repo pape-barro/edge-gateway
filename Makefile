@@ -71,7 +71,7 @@ modules:
 	sudo chmod 777 /etc/telegraf/
 	sudo chmod 777 /etc/telegraf/telegraf.conf
 	sudo rm -f /etc/telegraf/telegraf.conf
-	sudo cp -f ./modules/telegraf.conf /etc/telegraf/telegraf.conf
+	sudo cp -f ./modules/telegraf.conf /etc/telegraf/
 	sudo apt-get update && sudo apt-get install influxdb
 	sudo chmod 777 /etc/influxdb/
 	sudo chmod 777 /etc/influxdb/influxdb.conf
@@ -85,6 +85,35 @@ modules:
 	sudo systemctl start telegraf
 	sudo systemctl enable grafana-server
 	sudo systemctl start grafana-server
+	sudo apt-get update 
+	sudo apt-get install dnsmasq hostapd bridge-utils
+	sudo chmod 777 /etc/dhcpcd.conf
+	sudo rm -f /etc/dhcpcd.conf
+	sudo cp -f ./modules/dhcpcd.conf /etc/
+	sudo chmod 777 /etc/network/interfaces
+	sudo rm -f /etc/network/interfaces
+	sudo cp -f ./modules/interfaces /etc/network/
+	sudo service dhcpcd restart
+	sudo ifdown wlan0
+	sudo chmod 777 /etc/hostapd/
+	sudo cp -f ./modules/hostapd.conf /etc/hostapd/
+	sudo chmod 777 /etc/default/hostapd
+	sudo rm -f /etc/default/hostapd
+	sudo cp -f ./modules/hostapd /etc/default/
+	sudo chmod 777 /etc/dnsmasq.conf
+	sudo rm -f /etc/dnsmasq.conf
+	sudo cp -f ./modules/dnsmasq.conf /etc/
+	sudo chmod 777 /etc/sysctl.conf
+	sudo rm -f /etc/sysctl.conf
+	sudo cp -f ./modules/sysctl.conf /etc/
+	sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+	sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+	sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+	sudo iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
+	sudo iptables -A FORWARD -i wlan1 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+	sudo iptables -A FORWARD -i wlan0 -o wlan1 -j ACCEPT
+	sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+	
 	
 fireup:
 	sudo systemctl restart influxdb
