@@ -52,7 +52,7 @@ on `Makefile`:
 ```
 - html repository for graphical setting
 { IN PROGRESS ...}
-- modules repository for ( loraserver, TIG and access point )
+- modules repository ( loraserver, TIG and access point ) for Isolated network
 ```
 
 Raspberry PI pin mapping is as follow and pin number in file `global_conf.json` are WiringPi pin number (wPi colunm):
