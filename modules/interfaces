@@ -1,4 +1,3 @@
 auto br0
 iface br0 inet manual
 bridge_ports eth0 wlan0
-#bridge_ports wlan0 wlan1
