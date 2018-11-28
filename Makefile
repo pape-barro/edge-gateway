@@ -35,8 +35,9 @@ graphic:
 	sudo apt-get update
 	sudo apt-get install apache2 php libapache2-mod-php
 	sudo chmod 777 /var/www/
+	sudo chmod 777 /opt/edge-gateway/
 	sudo rm -rf /var/www/html
-	sudo cp -rf ./html /var/www/
+	sudo cp -rf /opt/edge-gateway/html /var/www/
 	sudo chmod 777 /var/www/html/web/utils/app.txt
 	sudo chmod 777 /var/www/html/web/utils/log.json
 	sudo chmod 777 /var/www/html/web/utils/log.json
@@ -45,7 +46,7 @@ graphic:
 	sudo apt-get update && sudo apt install apt-transport-https curl
 	
 modules:
-	sudo apt-get install apt-transport-https dirmngr
+	sudo apt-get update && sudo apt-get install apt-transport-https dirmngr
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1CE2AFD36DBCCA00
 	sudo echo "deb https://artifacts.loraserver.io/packages/2.x/deb stable main" | sudo tee /etc/apt/sources.list.d/loraserver.list
 	sudo apt-get update
@@ -86,17 +87,20 @@ modules:
 	sudo systemctl enable grafana-server
 	sudo systemctl start grafana-server
 	sudo apt-get update 
-	sudo apt-get install dnsmasq hostapd bridge-utils
+	sudo apt-get install dnsmasq hostapd
+	sudo systemctl stop hostapd
+	sudo systemctl stop dnsmasq
+	sudo chmod 777 /etc/
 	sudo chmod 777 /etc/dhcpcd.conf
 	sudo rm -f /etc/dhcpcd.conf
 	sudo cp -f ./modules/dhcpcd.conf /etc/
+	sudo chmod 777 /etc/network/
 	sudo chmod 777 /etc/network/interfaces
 	sudo rm -f /etc/network/interfaces
 	sudo cp -f ./modules/interfaces /etc/network/
-	sudo service dhcpcd restart
-	sudo ifdown wlan0
 	sudo chmod 777 /etc/hostapd/
 	sudo cp -f ./modules/hostapd.conf /etc/hostapd/
+	sudo chmod 777 /etc/default/
 	sudo chmod 777 /etc/default/hostapd
 	sudo rm -f /etc/default/hostapd
 	sudo cp -f ./modules/hostapd /etc/default/
@@ -107,15 +111,19 @@ modules:
 	sudo rm -f /etc/sysctl.conf
 	sudo cp -f ./modules/sysctl.conf /etc/
 	sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-	sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-	sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-	sudo iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
-	sudo iptables -A FORWARD -i wlan1 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-	sudo iptables -A FORWARD -i wlan0 -o wlan1 -j ACCEPT
 	sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
-	
+	sudo chmod 777 /etc/rc.local
+	sudo rm -f /etc/rc.local
+	sudo cp -f ./modules/rc.local /etc/
+	sudo apt-get install bridge-utils
+	sudo brctl addbr br0
+	sudo brctl addif br0 eth0
+	sudo systemctl start hostapd
+	sudo systemctl start dnsmasq
 	
 fireup:
+	sudo apt-get update
+	sudo apt-get upgrade
 	sudo systemctl restart influxdb
 	sudo reboot
 	
