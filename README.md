@@ -111,7 +111,6 @@ $ cd /opt/edge-gateway/
 $ sudo make
 $ sudo make install
 $ sudo make graphic
-{ IN PROGRESS ...}
 $ sudo -u postgres psql
 	> create role loraserver_as with login password 'dbpassword';
 	> create role loraserver_ns with login password 'dbpassword';
