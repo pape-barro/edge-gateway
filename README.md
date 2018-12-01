@@ -2,10 +2,9 @@ Single Channel LoRaWAN Edge-Gateway
 ==============================
 ```
 [ A single channel LoRaWAN multi-services and multi-optional gateway for communities ]
-{ IN PROGRESS ...}
 ```
 This repository contains a proof-of-concept implementation of a single
-channel LoRaWAN multi-services and multi-optional gateway for communities.
+channel LoRaWAN multi-services and multi-optional gateway for communities. (the proof-of-concept for the eight is available on : https://github.com/pape-barro/eight_chan_lorawan_edge_gateway).
 
 It has been tested on the Raspberry Pi platform, using a Semtech SX1272
 transceiver (HopeRF RFM92W), and SX1276 (HopeRF RFM95W).
