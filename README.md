@@ -50,7 +50,6 @@ on `Makefile`:
 
 ```
 - html repository for graphical setting
-{ IN PROGRESS ...}
 - modules repository ( loraserver, TIG and access point ) for Isolated network
 ```
 
