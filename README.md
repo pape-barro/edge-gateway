@@ -128,7 +128,7 @@ echo "deb https://repos.influxdata.com/debian stretch stable" | sudo tee /etc/ap
 ```
 next:
 ```
-$ sudo make modules
+$ sudo make mod
 $ influx
 	> CREATE USER admin WITH PASSWORD 'dbpassword' WITH ALL PRIVILEGES
 	> CREATE DATABASE telegraf
