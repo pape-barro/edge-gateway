@@ -131,9 +131,11 @@ next:
 $ sudo make mod
 $ influx
 	> CREATE USER admin WITH PASSWORD 'dbpassword' WITH ALL PRIVILEGES
+	> exit
+$ influx -username admin -password dbpassword
 	> CREATE DATABASE telegraf
 	> exit
-$ fireup
+$ sudo make fireup
 
 ```
 To find out which version of raspbian you’re running
