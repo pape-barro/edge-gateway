@@ -45,7 +45,7 @@ graphic:
 	sudo apt-get update && sudo apt-get install mosquitto mosquitto-clients redis-server redis-tools postgresql
 	sudo apt-get update && sudo apt install apt-transport-https curl
 	
-modules:
+mod:
 	sudo apt-get update && sudo apt-get install apt-transport-https dirmngr
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1CE2AFD36DBCCA00
 	sudo echo "deb https://artifacts.loraserver.io/packages/2.x/deb stable main" | sudo tee /etc/apt/sources.list.d/loraserver.list
