@@ -1,0 +1,27 @@
+from influxdb import InfluxDBClient
+import json
+
+with open('/var/www/html/web/data/setup.json') as json_data:
+        data_dict = json.load(json_data)
+data = data_dict["date"]
+
+date=data+"T23:59:59Z";
+client = InfluxDBClient(host="127.0.0.1", port="8086", username="admin", password="dbpassword", database="telegraf")
+
+
+result = client.query('delete from cpu where time < '+date)
+result = client.query('delete from disk where time < '+date)
+result = client.query('delete from diskio where time < '+date)
+result = client.query('delete from kernel where time < '+date)
+result = client.query('delete from mem where time < '+date)
+result = client.query('delete from processes where time < '+date)
+result = client.query('delete from swap where time < '+date)
+import json
+
+with open('/var/www/html/web/data/setup.json') as json_data:
+        data_dict = json.load(json_data)
+date = data_dict["date"]
+result = client.query('delete from system where time < '+date)
+result = client.query('delete from mqtt_consumer where time < '+date)
+
+
