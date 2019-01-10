@@ -134,6 +134,7 @@ $ influx
 	> exit
 $ influx -username admin -password dbpassword
 	> CREATE DATABASE telegraf
+	> CREATE RETENTION POLICY "purge" ON "telegraf" DURATION 1w REPLICATION 1 DEFAULT
 	> exit
 $ sudo make fireup
 
